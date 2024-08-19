@@ -5,7 +5,6 @@ let elapsedTime = 0;
 let isRunning = false;
 
 function start(){
-
     if(!isRunning){
         startTime = Date.now() - elapsedTime;
         timer = setInterval(update,10);
@@ -14,19 +13,19 @@ function start(){
 }
 
 function stop(){
-
     if(isRunning){
         clearInterval(timer);
         elapsedTime = Date.now() - startTime;
         isRunning = false;
-    }
-     
+    }    
 }
 
-function reset(){
-
-    
-     
+function restart(){
+    clearInterval(timer);
+    startTime = 0;
+    elapsedTime = 0;
+    isRunning = false;
+    display.textContent = "00:00:00:00";  
 }
 
 function update(){
